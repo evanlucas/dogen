@@ -46,3 +46,11 @@ dogen.generate('./index.js', 'Blah', 'test framework', function(err, out) {
   */
 })
 ```
+
+## Author
+
+Evan Lucas
+
+## License
+
+MIT (See `LICENSE` for more info)
