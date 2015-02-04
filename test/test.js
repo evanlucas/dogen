@@ -66,6 +66,24 @@ describe('dogen', function() {
         done()
       })
     })
+
+    it('should allow optional description', function(done) {
+      dogen.parse(join('fixtures/desc.js'), function(err, out) {
+        if (err) return done(err)
+        assert.ok(out, 'out should exist')
+        assert.equal(out.description, 'This is a test file')
+        assert.equal(out.names.length, 1)
+        assert.equal(out.names[0], 'Blah')
+        var p = out.functions[0]
+        assert.equal(p.proto, 'Blah')
+        assert.equal(p.func, 'biscuits')
+        assert.ok(p.isPrototype)
+        assert.equal(p.params.length, 2)
+        assert.equal(p.params[0], 'id')
+        assert.equal(out.module, 'Blah')
+        done()
+      })
+    })
   })
 
   describe('generate', function() {
